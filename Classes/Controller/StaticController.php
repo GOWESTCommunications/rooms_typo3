@@ -1,5 +1,5 @@
 <?php
-namespace GOWEST\Rooms\Controller;
+namespace GoWest\Rooms\Controller;
 
 use TYPO3\CMS\Core\Utility\GeneralUtility;
 
