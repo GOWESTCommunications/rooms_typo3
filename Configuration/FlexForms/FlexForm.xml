@@ -1,0 +1,171 @@
+<?xml version="1.0" encoding="utf-8"?>
+<T3DataStructure>
+	<sheets>
+		<hotel>
+			<ROOT>
+				<TCEforms>
+					<sheetTitle>Hotel</sheetTitle>
+					<sheetDescription></sheetDescription>
+				</TCEforms>
+				<type>array</type>
+				<el>
+					<hotel_id>
+						<TCEforms>
+							<label>Kognitiv Hotel-ID</label>
+							<description>Es findet keine Gültigkeitsprüfung der ID statt</description>
+							<onChange>reload</onChange>
+							<config>
+								<type>input</type>
+								<eval>required</eval>
+							</config>
+						</TCEforms>
+					</hotel_id>
+				</el>
+			</ROOT>
+		</hotel>
+		<data>
+			<ROOT>
+				<TCEforms>
+					<sheetTitle>Anzeige</sheetTitle>
+					<displayCond>FIELD:hotel.hotel_id:REQ:true</displayCond>
+				</TCEforms>
+				<type>array</type>
+				<el>
+					<component>
+						<TCEforms>
+							<label>Komponente</label>
+							<config>
+								<type>select</type>
+								<renderType>selectSingle</renderType>
+									<items>
+										<numIndex index="0">
+											<numIndex index="0">Zimmer</numIndex>
+											<numIndex index="1">room</numIndex>
+										</numIndex>
+										<numIndex index="1">
+											<numIndex index="0">Packages</numIndex>
+											<numIndex index="1">package</numIndex>
+										</numIndex>
+										<numIndex index="2">
+											<numIndex index="0">Services</numIndex>
+											<numIndex index="1">service</numIndex>
+										</numIndex>
+									</items>
+								</config>
+								<onChange>reload</onChange>
+							</TCEforms>
+						</component>
+						<settings.component_layout>
+							<TCEforms>
+								<label>Layout</label>
+								<displayCond>
+									<OR>
+										<value1>FIELD:component:=:room</value1>
+										<value2>FIELD:component:=:package</value2>
+									</OR>
+								</displayCond>
+								<config>
+									<type>select</type>
+									<renderType>selectSingle</renderType>
+									<items>
+										<numIndex index="0">
+											<numIndex index="0">Detailseite</numIndex>
+											<numIndex index="1">detail</numIndex>
+										</numIndex>
+										<numIndex index="1">
+											<numIndex index="0">Übersichtseite (groß)</numIndex>
+											<numIndex index="1">large</numIndex>
+										</numIndex>
+										<numIndex index="2">
+											<numIndex index="0">Teaser-Box (kompakt)</numIndex>
+											<numIndex index="1">small</numIndex>
+										</numIndex>
+									</items>
+									<eval>required</eval>
+								</config>
+							</TCEforms>
+					</settings.component_layout>
+					<!--<settings.component_part_room>
+						<TCEforms>
+							<label>Layout-Teil</label>
+								<config>
+								<type>select</type>
+								<renderType>selectSingle</renderType>
+									<items>
+										<numIndex index="0">
+											<numIndex index="0">Vollständig</numIndex>
+											<numIndex index="1">all</numIndex>
+										</numIndex>
+										<numIndex index="1">
+											<numIndex index="0">Zimmer-Name</numIndex>
+											<numIndex index="1">name</numIndex>
+										</numIndex>
+										<numIndex index="2">
+											<numIndex index="0">Zimmer-Beschreibung</numIndex>
+											<numIndex index="1">description</numIndex>
+										</numIndex>
+										<numIndex index="3">
+											<numIndex index="0">Zimmer-Bilder</numIndex>
+											<numIndex index="1">image</numIndex>
+										</numIndex>
+										<numIndex index="4">
+											<numIndex index="0">Austattungsmerkmale</numIndex>
+											<numIndex index="1">amenities</numIndex>
+										</numIndex>
+										<numIndex index="5">
+											<numIndex index="0">ab-Preis</numIndex>
+											<numIndex index="1">price_from</numIndex>
+										</numIndex>
+										<numIndex index="6">
+											<numIndex index="0">CTA-Buttons</numIndex>
+											<numIndex index="1">cta_buttons</numIndex>
+										</numIndex>
+									</items>
+									<eval>required</eval>
+								</config>
+						</TCEforms>
+					</settings.component_part_room>-->
+					<settings.room_code>
+						<TCEforms>
+							<label>Room-Code</label>
+							<description></description>
+							<displayCond>FIELD:component:=:room</displayCond>
+							<config>
+								<type>select</type>
+								<renderType>selectMultipleSideBySide</renderType>
+								<items></items>
+								<itemsProcFunc>GoWest\Rooms\Utility\FlexFormHelper->getRooms</itemsProcFunc>
+							</config>
+						</TCEforms>
+					</settings.room_code> 
+					<settings.package_code>
+						<TCEforms>
+							<label>Package-Code</label>
+							<description></description>
+							<displayCond>FIELD:component:=:package</displayCond>
+							<config>
+								<type>select</type>
+								<renderType>selectMultipleSideBySide</renderType>
+								<items></items>
+								<itemsProcFunc>GoWest\Rooms\Utility\FlexFormHelper->getPackages</itemsProcFunc>
+							</config>
+						</TCEforms>
+					</settings.package_code>
+					<settings.service_code>
+						<TCEforms>
+							<label>Service  Code</label>
+							<description></description>
+							<displayCond>FIELD:component:=:service</displayCond>
+							<config>
+								<type>select</type>
+								<renderType>selectMultipleSideBySide</renderType>
+								<items></items>
+								<itemsProcFunc>GoWest\Rooms\Utility\FlexFormHelper->getServices</itemsProcFunc>
+							</config>
+						</TCEforms>
+					</settings.service_code> 
+				</el>
+			</ROOT>
+		</data>
+	</sheets>
+</T3DataStructure>
