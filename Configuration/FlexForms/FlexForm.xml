@@ -132,9 +132,9 @@
 							<displayCond>FIELD:component:=:room</displayCond>
 							<config>
 								<type>select</type>
+								<itemsProcFunc>GoWest\RoomsTypo3\Controller\ItemsProcFunc->getRooms</itemsProcFunc>
 								<renderType>selectMultipleSideBySide</renderType>
 								<items></items>
-								<itemsProcFunc>GoWest\Rooms\Utility\FlexFormHelper->getRooms</itemsProcFunc>
 							</config>
 						</TCEforms>
 					</settings.room_code> 
@@ -145,22 +145,22 @@
 							<displayCond>FIELD:component:=:package</displayCond>
 							<config>
 								<type>select</type>
+								<itemsProcFunc>GoWest\RoomsTypo3\Backend\ItemsProcFunc->getPackages</itemsProcFunc>
 								<renderType>selectMultipleSideBySide</renderType>
 								<items></items>
-								<itemsProcFunc>GoWest\Rooms\Utility\FlexFormHelper->getPackages</itemsProcFunc>
 							</config>
 						</TCEforms>
 					</settings.package_code>
 					<settings.service_code>
 						<TCEforms>
-							<label>Service  Code</label>
+							<label>Service-Code</label>
 							<description></description>
 							<displayCond>FIELD:component:=:service</displayCond>
 							<config>
 								<type>select</type>
+								<itemsProcFunc>GoWest\RoomsTypo3\Backend\ItemsProcFunc->getServices</itemsProcFunc>
 								<renderType>selectMultipleSideBySide</renderType>
 								<items></items>
-								<itemsProcFunc>GoWest\Rooms\Utility\FlexFormHelper->getServices</itemsProcFunc>
 							</config>
 						</TCEforms>
 					</settings.service_code> 

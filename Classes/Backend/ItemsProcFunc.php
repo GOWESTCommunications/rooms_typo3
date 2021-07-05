@@ -1,9 +1,10 @@
 <?php
-namespace GoWest\Rooms\Utility;
+
+namespace GoWest\RoomsTypo3\Backend;
 
 use Psr\Http\Message\RequestFactoryInterface;
 
-class FlexFormHelper {
+class ItemsProcFunc {
 
 	public function handle($url) {
 		$additionalOptions = [
@@ -24,6 +25,7 @@ class FlexFormHelper {
 	}
 
 	public function getRooms(&$fConfig, $fObj) {
+		\TYPO3\CMS\Extbase\Utility\DebuggerUtility::var_dump('test');
 		$hotel_id = $fConfig['flexParentDatabaseRow']['pi_flexform']['data']['hotel']['lDEF']['hotel_id']['vDEF'];
 		if (strlen($hotel_id) > 1) {
 			if($request = $this->handle('https://kognitiv.go-stage.at/items/rooms?filter[hotel_id][hotel_code][_eq]=' . $hotel_id . '&fields[]=code,name')) {

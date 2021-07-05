@@ -20,4 +20,9 @@ $EM_CONF[$_EXTKEY] = array(
 		'suggests' => array(
 		),
 	),
+	'autoload' => [
+		'psr-4' => [
+			'GoWest\\RoomsTypo3\\' => 'Classes'
+		]
+	 ],
 );

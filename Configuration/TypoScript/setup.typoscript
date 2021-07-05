@@ -1,0 +1,63 @@
+plugin.tx_roomstypo3 {
+    view {
+        templateRootPath {
+            10 = EXT:rooms/Resources/Private/Templates/
+            200 = {$plugin.tx_rooms.view.templateRootPath}
+        }
+        partialRootPath {
+            10 = EXT:rooms/Resources/Private/Partials/
+            200 = {$plugin.tx_rooms.view.partialRootPath}
+        }
+        layoutRootPath {
+            10 = EXT:rooms/Resources/Private/Layouts/
+            200 = {$plugin.tx_rooms.view.layoutRootPath}
+        }
+    }
+    persistence {
+        storagePid = {$plugin.tx_rooms.persistence.storagePid}
+    }
+}
+
+lib.tx_roomstypo3 = USER
+lib.tx_roomstypo3 {
+    userFunc = TYPO3\CMS\Extbase\Core\Bootstrap->run
+    
+    vendorName = GoWest
+    extensionName = RoomsTypo3
+    pluginName = Pi1
+    
+    settings =< plugin.tx_rooms.settings
+        
+    persistence =< plugin.tx_rooms.persistence
+    view =< plugin.tx_rooms.view
+}
+
+
+tt_content.list =< lib.contentElementWithHeader
+tt_content.list {
+    fields {
+        content {
+            fields {
+                data = CASE
+                data {
+                    key.field = list_type
+
+                    roomstypo3_pi1 = USER
+                    roomstypo3_pi1 {
+                        userFunc = TYPO3\CMS\Extbase\Core\Bootstrap->run
+                        vendorName = GoWest
+                        extensionName = RoomsTypo3
+                        pluginName = Pi1
+                        controller = Default
+
+                        view < plugin.tx_rooms.view
+                        persistence < plugin.tx_rooms.persistence
+                        settings < plugin.tx_rooms.settings
+                    }
+                }
+            }
+
+        }
+    }
+}
+

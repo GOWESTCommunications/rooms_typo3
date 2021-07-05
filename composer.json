@@ -1,23 +1,26 @@
 {
-    "name": "gowest/rooms_typo3",
+    "name": "gowest/rooms-typo3",
     "type": "typo3-cms-extension",
     "description": "Rooms (& Packages) from Kogntiv",
-    "homepage": "http://go-west.at",
+    "homepage": "https://go-west.at",
     "version": "1.0.0",
     "license": "MIT",
-    "version": "2.0.0",
     "require": {
         "typo3/cms-core": ">=10.0"
     },
-    "replace": {
-      "gowest/rooms_typo3": "self.version",
-      "typo3-ter/rooms_typo3": "self.version"
-    },
     "autoload": {
       "psr-4": {
-        "GoWest\\Rooms\\": "Classes"
+        "GoWest\\RoomsTypo3\\": "Classes"
+        
       }
+    },
+    "extra": {
+      "typo3/cms": {
+          "extension-key": "rooms_typo3"
+      }
+    },
+    "replace": {
+        "gowest/rooms-typo3": "self.version",
+        "typo3-ter/rooms-typo3": "self.version"
     }
 }
-  
-
